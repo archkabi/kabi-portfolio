@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kabiraj Acharya — Portfolio</title>
+  <meta name="description" content="Portfolio of Kabiraj Acharya — Web Developer & Designer" />
+  <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
+  <style>
+    :root{
+      --bg:#0f1724; --card:#0b1220; --muted:#94a3b8; --accent:#7c3aed; --glass: rgba(255,255,255,0.04);
+      --maxw:1100px; --radius:14px;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;}
+    body{
+      margin:0; background:linear-gradient(180deg,#071028 0%, #071b2a 60%); color:#e6eef8; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+      display:flex; align-items:center; justify-content:center; padding:40px 20px;
+    }
+    .wrap{width:100%; max-width:var(--maxw);}
+
+    header{
+      display:flex; gap:20px; align-items:center; justify-content:space-between; margin-bottom:28px;
+    }
+    .brand{display:flex; gap:14px; align-items:center}
+    .logo{width:56px; height:56px; border-radius:12px; background:linear-gradient(135deg,var(--accent),#06b6d4); display:flex; align-items:center; justify-content:center; font-weight:700; font-size:20px}
+    h1{margin:0; font-size:20px}
+    p.lead{margin:0;color:var(--muted); font-size:13px}
+
+    .grid{display:grid; grid-template-columns: 1fr 360px; gap:24px; align-items:start}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border-radius:var(--radius); padding:22px; box-shadow: 0 6px 30px rgba(2,6,23,0.6);}
+
+    /* left */
+    .hero{display:flex; gap:18px}
+    .avatar{width:120px; height:120px; border-radius:12px; background:linear-gradient(135deg,#0ea5a8,#7c3aed); display:flex; align-items:center; justify-content:center; font-weight:700; font-size:36px}
+    .intro h2{margin:0 0 6px 0; font-size:22px}
+    .intro p{margin:0;color:var(--muted)}
+
+    .section{margin-top:18px}
+    .section h3{margin:0 0 12px 0}
+
+    .projects{display:grid; gap:12px}
+    .project{display:flex; gap:12px; align-items:center; padding:12px; border-radius:10px; background:var(--glass)}
+    .project .thumb{width:88px; height:56px; border-radius:8px; background:#072235; display:flex; align-items:center; justify-content:center; font-weight:600}
+    .project .meta{flex:1}
+    .project .meta h4{margin:0;font-size:14px}
+    .project .meta p{margin:4px 0 0 0;color:var(--muted);font-size:13px}
+
+    .skills{display:flex; gap:8px; flex-wrap:wrap}
+    .skill{background:rgba(255,255,255,0.03); border-radius:999px; padding:6px 10px; font-size:13px; color:var(--muted)}
+
+    /* right column */
+    .profile{display:flex; flex-direction:column; gap:12px}
+    .contact-row{display:flex; gap:10px; flex-direction:column}
+    .btn{display:inline-block; padding:10px 12px; border-radius:10px; background:linear-gradient(90deg,var(--accent),#06b6d4); color:white; text-decoration:none; font-weight:600}
+
+    footer{margin-top:18px;color:var(--muted); font-size:13px; text-align:center}
+
+    /* responsive */
+    @media (max-width:900px){
+      .grid{grid-template-columns:1fr;}
+      .hero{flex-direction:row}
+      .avatar{width:96px;height:96px}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">KA</div>
+        <div>
+          <h1>Kabiraj Acharya</h1>
+          <p class="lead">Full‑stack developer • React, Flask, MySQL • Portfolio</p>
+        </div>
+      </div>
+      <nav>
+        <a class="btn" href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main class="grid">
+      <section>
+        <div class="card">
+          <div class="hero">
+            <div class="avatar">KA</div>
+            <div class="intro">
+              <h2>Hi — I’m Kabiraj. I build web apps that solve real problems.</h2>
+              <p>I’m a beginner-to-intermediate web developer focusing on React for frontend, Flask for backend, and MySQL for data. I enjoy building clean UI and practical tools for small businesses and schools.</p>
+            </div>
+          </div>
+
+          <div class="section">
+            <h3>Featured Projects</h3>
+            <div class="projects">
+              <a class="project" href="#" target="_blank">
+                <div class="thumb">App</div>
+                <div class="meta">
+                  <h4>School Management System</h4>
+                  <p>React + Flask + MySQL — attendance, fees, reports, and admin dashboard.</p>
+                </div>
+              </a>
+
+              <a class="project" href="#" target="_blank">
+                <div class="thumb">Site</div>
+                <div class="meta">
+                  <h4>Portfolio Website</h4>
+                  <p>Personal portfolio built with HTML, CSS and a little JS for interactions.</p>
+                </div>
+              </a>
+
+              <a class="project" href="#" target="_blank">
+                <div class="thumb">API</div>
+                <div class="meta">
+                  <h4>REST API (Flask)</h4>
+                  <p>Authentication, CRUD and MySQL integration for school apps.</p>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="section">
+            <h3>Skills</h3>
+            <div class="skills">
+              <span class="skill">HTML</span>
+              <span class="skill">CSS</span>
+              <span class="skill">JavaScript</span>
+              <span class="skill">React</span>
+              <span class="skill">Flask</span>
+              <span class="skill">MySQL</span>
+              <span class="skill">Git</span>
+              <span class="skill">Docker (basics)</span>
+            </div>
+          </div>
+
+          <div class="section">
+            <h3>Experience</h3>
+            <p style="color:var(--muted);margin:6px 0 0">Waiter (Hospitality) — developed communication & teamwork skills. Currently building web apps and learning cloud tools.</p>
+          </div>
+        </div>
+
+        <footer>
+          <small>Want edits? I can customize colors, fonts, or add sections (blog, testimonials, downloadable resume).</small>
+        </footer>
+      </section>
+
+      <aside>
+        <div class="card profile">
+          <div>
+            <h3>Contact</h3>
+            <p class="lead" style="margin-top:6px">Kathmandu, Nepal • <a href="mailto:youremail@example.com" style="color:inherit; text-decoration:underline">youremail@example.com</a></p>
+          </div>
+
+          <div class="contact-row">
+            <a class="btn" href="mailto:youremail@example.com">Email me</a>
+            <a class="btn" href="#" style="background:transparent; border:1px solid rgba(255,255,255,0.06);">Download Resume</a>
+          </div>
+
+          <div class="section">
+            <h3>Links</h3>
+            <p style="margin:8px 0 0"><a href="https://github.com/archkabi" target="_blank">GitHub</a> • <a href="#" target="_blank">LinkedIn</a> • <a href="#" target="_blank">Portfolio Repo</a></p>
+          </div>
+
+          <div class="section">
+            <h3>Availability</h3>
+            <p style="color:var(--muted);margin:6px 0 0">Open for freelance & collaboration. Prefer remote work; local projects considered.</p>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:16px;text-align:center">
+          <h3>Quick Contact</h3>
+          <p style="color:var(--muted);font-size:13px">Want a specific section added? Or color/theme change? Tell me and I’ll update the file.</p>
+        </div>
+      </aside>
+    </main>
+  </div>
+</body>
+</html>
