@@ -1,200 +1,382 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Kabiraj Acharya — Portfolio</title>
-  <meta name="description" content="Portfolio of Kabiraj Acharya — Web Developer & Designer" />
-  <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
-  <style>
-    :root{
-      --bg:#0f1724; --card:#0b1220; --muted:#94a3b8; --accent:#7c3aed; --glass: rgba(255,255,255,0.04);
-      --maxw:1100px; --radius:14px;
-      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-    }
-    *{box-sizing:border-box; margin:0; padding:0;}
-    html,body{height:100%;}
-    body{
-      margin:0; background:linear-gradient(180deg,#071028 0%, #071b2a 60%); color:#e6eef8;
-      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
-      display:flex; align-items:center; justify-content:center; padding:40px 20px;
-    }
-    .wrap{width:100%; max-width:var(--maxw);}
-
-    header{
-      display:flex; gap:20px; align-items:center; justify-content:space-between; margin-bottom:28px; flex-wrap:wrap;
-    }
-    .brand{display:flex; gap:14px; align-items:center; flex:1; min-width:200px}
-    .logo{width:56px; height:56px; border-radius:12px; background:linear-gradient(135deg,var(--accent),#06b6d4); display:flex; align-items:center; justify-content:center; font-weight:700; font-size:20px}
-    h1{margin:0; font-size:20px}
-    p.lead{margin:0;color:var(--muted); font-size:14px}
-
-    .grid{display:grid; grid-template-columns: 1fr 360px; gap:24px; align-items:start}
-    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border-radius:var(--radius); padding:22px; box-shadow: 0 6px 30px rgba(2,6,23,0.6);}
-
-    /* left */
-    .hero{display:flex; gap:18px; flex-wrap:wrap;}
-    .avatar{width:120px; height:120px; border-radius:12px; background:linear-gradient(135deg,#0ea5a8,#7c3aed); display:flex; align-items:center; justify-content:center; font-weight:700; font-size:36px; flex-shrink:0;}
-    .intro h2{margin:0 0 6px 0; font-size:22px}
-    .intro p{margin:0;color:var(--muted)}
-
-    .section{margin-top:18px}
-    .section h3{margin:0 0 12px 0; font-size:18px}
-
-    .projects{display:grid; gap:12px}
-    .project{display:flex; gap:12px; align-items:center; padding:12px; border-radius:10px; background:var(--glass); flex-wrap:wrap}
-    .project .thumb{width:88px; height:56px; border-radius:8px; background:#072235; display:flex; align-items:center; justify-content:center; font-weight:600; font-size:13px}
-    .project .meta{flex:1; min-width:180px}
-    .project .meta h4{margin:0;font-size:15px}
-    .project .meta p{margin:4px 0 0 0;color:var(--muted);font-size:13px; line-height:1.4}
-
-    .skills{display:flex; gap:8px; flex-wrap:wrap}
-    .skill{background:rgba(255,255,255,0.03); border-radius:999px; padding:6px 10px; font-size:13px; color:var(--muted)}
-
-    /* right column */
-    .profile{display:flex; flex-direction:column; gap:12px}
-    .contact-row{display:flex; gap:10px; flex-direction:column}
-    .btn{display:inline-block; padding:10px 12px; border-radius:10px; background:linear-gradient(90deg,var(--accent),#06b6d4); color:white; text-decoration:none; font-weight:600; text-align:center}
-
-    footer{margin-top:18px;color:var(--muted); font-size:13px; text-align:center}
-
-    /* --- Responsive Styles --- */
-    @media (max-width:1024px){ /* Tablet */
-      .grid{grid-template-columns:1fr;}
-      .project .thumb{width:72px; height:48px}
-      .avatar{width:100px;height:100px;font-size:28px}
-    }
-
-    @media (max-width:768px){ /* Small tablet / big phone */
-      body{padding:20px 14px}
-      header{flex-direction:column; align-items:flex-start; gap:12px;}
-      h1{font-size:18px}
-      .intro h2{font-size:20px}
-      .section h3{font-size:16px}
-      .btn{padding:8px 10px;font-size:14px}
-    }
-
-    @media (max-width:480px){ /* Phones */
-      .avatar{width:80px;height:80px;font-size:24px}
-      .intro h2{font-size:18px}
-      .intro p{font-size:13px}
-      .project{flex-direction:column; align-items:flex-start}
-      .project .thumb{width:100%; height:50px}
-      .project .meta h4{font-size:14px}
-      .skills{gap:6px}
-      .skill{padding:4px 8px;font-size:12px}
-    }
-  </style>
-</head>
-<body>
-  <div class="wrap">
-    <header>
-      <div class="brand">
-        <div class="logo">KA</div>
-        <div>
-          <h1>Kabiraj Acharya</h1>
-          <p class="lead">Full-stack developer • React, Flask, MySQL • Portfolio</p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="mediaqueries.css" />
+  </head>
+  <body>
+    <nav id="desktop-nav">
+      <div class="logo">John Doe</div>
+      <div>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+    <nav id="hamburger-nav">
+      <div class="logo">John Doe</div>
+      <div class="hamburger-menu">
+        <div class="hamburger-icon" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="menu-links">
+          <li><a href="#about" onclick="toggleMenu()">About</a></li>
+          <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
+          <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
+          <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
         </div>
       </div>
+    </nav>
+    <section id="profile">
+      <div class="section__pic-container">
+        <img src="./assets/profile-pic.png" alt="John Doe profile picture" />
+      </div>
+      <div class="section__text">
+        <p class="section__text__p1">Hello, I'm</p>
+        <h1 class="title">John Doe</h1>
+        <p class="section__text__p2">Frontend Developer</p>
+        <div class="btn-container">
+          <button
+            class="btn btn-color-2"
+            onclick="window.open('./assets/resume-example.pdf')"
+          >
+            Download CV
+          </button>
+          <button class="btn btn-color-1" onclick="location.href='./#contact'">
+            Contact Info
+          </button>
+        </div>
+        <div id="socials-container">
+          <img
+            src="./assets/linkedin.png"
+            alt="My LinkedIn profile"
+            class="icon"
+            onclick="location.href='https://linkedin.com/'"
+          />
+          <img
+            src="./assets/github.png"
+            alt="My Github profile"
+            class="icon"
+            onclick="location.href='https://github.com/'"
+          />
+        </div>
+      </div>
+    </section>
+    <section id="about">
+      <p class="section__text__p1">Get To Know More</p>
+      <h1 class="title">About Me</h1>
+      <div class="section-container">
+        <div class="section__pic-container">
+          <img
+            src="./assets/about-pic.png"
+            alt="Profile picture"
+            class="about-pic"
+          />
+        </div>
+        <div class="about-details-container">
+          <div class="about-containers">
+            <div class="details-container">
+              <img
+                src="./assets/experience.png"
+                alt="Experience icon"
+                class="icon"
+              />
+              <h3>Experience</h3>
+              <p>2+ years <br />Frontend Development</p>
+            </div>
+            <div class="details-container">
+              <img
+                src="./assets/education.png"
+                alt="Education icon"
+                class="icon"
+              />
+              <h3>Education</h3>
+              <p>B.Sc. Bachelors Degree<br />M.Sc. Masters Degree</p>
+            </div>
+          </div>
+          <div class="text-container">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic quis
+              reprehenderit et laborum, rem, dolore eum quod voluptate
+              exercitationem nobis, nihil esse debitis maxime facere minus sint
+              delectus velit in eos quo officiis explicabo deleniti dignissimos.
+              Eligendi illum libero dolorum cum laboriosam corrupti quidem,
+              reiciendis ea magnam? Nulla, impedit fuga!
+            </p>
+          </div>
+        </div>
+      </div>
+      <img
+        src="./assets/arrow.png"
+        alt="Arrow icon"
+        class="icon arrow"
+        onclick="location.href='./#experience'"
+      />
+    </section>
+    <section id="experience">
+      <p class="section__text__p1">Explore My</p>
+      <h1 class="title">Experience</h1>
+      <div class="experience-details-container">
+        <div class="about-containers">
+          <div class="details-container">
+            <h2 class="experience-sub-title">Frontend Development</h2>
+            <div class="article-container">
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>HTML</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>CSS</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>SASS</h3>
+                  <p>Intermediate</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>JavaScript</h3>
+                  <p>Basic</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>TypeScript</h3>
+                  <p>Basic</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>Material UI</h3>
+                  <p>Intermediate</p>
+                </div>
+              </article>
+            </div>
+          </div>
+          <div class="details-container">
+            <h2 class="experience-sub-title">Frontend Development</h2>
+            <div class="article-container">
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>PostgreSQL</h3>
+                  <p>Basic</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>Node JS</h3>
+                  <p>Intermediate</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>Express JS</h3>
+                  <p>Intermediate</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>Git</h3>
+                  <p>Intermediate</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+      <img
+        src="./assets/arrow.png"
+        alt="Arrow icon"
+        class="icon arrow"
+        onclick="location.href='./#projects'"
+      />
+    </section>
+    <section id="projects">
+      <p class="section__text__p1">Browse My Recent</p>
+      <h1 class="title">Projects</h1>
+      <div class="experience-details-container">
+        <div class="about-containers">
+          <div class="details-container color-container">
+            <div class="article-container">
+              <img
+                src="./assets/project-1.png"
+                alt="Project 1"
+                class="project-img"
+              />
+            </div>
+            <h2 class="experience-sub-title project-title">Project One</h2>
+            <div class="btn-container">
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://github.com/'"
+              >
+                Github
+              </button>
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://github.com/'"
+              >
+                Live Demo
+              </button>
+            </div>
+          </div>
+          <div class="details-container color-container">
+            <div class="article-container">
+              <img
+                src="./assets/project-2.png"
+                alt="Project 2"
+                class="project-img"
+              />
+            </div>
+            <h2 class="experience-sub-title project-title">Project Two</h2>
+            <div class="btn-container">
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://github.com/'"
+              >
+                Github
+              </button>
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://github.com/'"
+              >
+                Live Demo
+              </button>
+            </div>
+          </div>
+          <div class="details-container color-container">
+            <div class="article-container">
+              <img
+                src="./assets/project-3.png"
+                alt="Project 3"
+                class="project-img"
+              />
+            </div>
+            <h2 class="experience-sub-title project-title">Project Three</h2>
+            <div class="btn-container">
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://github.com/'"
+              >
+                Github
+              </button>
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://github.com/'"
+              >
+                Live Demo
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <img
+        src="./assets/arrow.png"
+        alt="Arrow icon"
+        class="icon arrow"
+        onclick="location.href='./#contact'"
+      />
+    </section>
+    <section id="contact">
+      <p class="section__text__p1">Get in Touch</p>
+      <h1 class="title">Contact Me</h1>
+      <div class="contact-info-upper-container">
+        <div class="contact-info-container">
+          <img
+            src="./assets/email.png"
+            alt="Email icon"
+            class="icon contact-icon email-icon"
+          />
+          <p><a href="mailto:examplemail@gmail.com">Example@gmail.com</a></p>
+        </div>
+        <div class="contact-info-container">
+          <img
+            src="./assets/linkedin.png"
+            alt="LinkedIn icon"
+            class="icon contact-icon"
+          />
+          <p><a href="https://www.linkedin.com">LinkedIn</a></p>
+        </div>
+      </div>
+    </section>
+    <footer>
       <nav>
-        <a class="btn" href="#contact">Contact</a>
+        <div class="nav-links-container">
+          <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
       </nav>
-    </header>
-
-    <main class="grid">
-      <section>
-        <div class="card">
-          <div class="hero">
-            <div class="avatar">KA</div>
-            <div class="intro">
-              <h2>Hi — I’m Kabiraj. I build web apps that solve real problems.</h2>
-              <p>I’m a beginner-to-intermediate web developer focusing on React for frontend, Flask for backend, and MySQL for data. I enjoy building clean UI and practical tools for small businesses and schools.</p>
-            </div>
-          </div>
-
-          <div class="section">
-            <h3>Featured Projects</h3>
-            <div class="projects">
-              <a class="project" href="#" target="_blank">
-                <div class="thumb">App</div>
-                <div class="meta">
-                  <h4>School Management System</h4>
-                  <p>React + Flask + MySQL — attendance, fees, reports, and admin dashboard.</p>
-                </div>
-              </a>
-
-              <a class="project" href="#" target="_blank">
-                <div class="thumb">Site</div>
-                <div class="meta">
-                  <h4>Portfolio Website</h4>
-                  <p>Personal portfolio built with HTML, CSS and a little JS for interactions.</p>
-                </div>
-              </a>
-
-              <a class="project" href="#" target="_blank">
-                <div class="thumb">API</div>
-                <div class="meta">
-                  <h4>REST API (Flask)</h4>
-                  <p>Authentication, CRUD and MySQL integration for school apps.</p>
-                </div>
-              </a>
-            </div>
-          </div>
-
-          <div class="section">
-            <h3>Skills</h3>
-            <div class="skills">
-              <span class="skill">HTML</span>
-              <span class="skill">CSS</span>
-              <span class="skill">JavaScript</span>
-              <span class="skill">React</span>
-              <span class="skill">Flask</span>
-              <span class="skill">MySQL</span>
-              <span class="skill">Git</span>
-              <span class="skill">Docker (basics)</span>
-            </div>
-          </div>
-
-          <div class="section">
-            <h3>Experience</h3>
-            <p style="color:var(--muted);margin:6px 0 0">Waiter (Hospitality) — developed communication & teamwork skills. Currently building web apps and learning cloud tools.</p>
-          </div>
-        </div>
-
-        <footer>
-          <small>Want edits? I can customize colors, fonts, or add sections (blog, testimonials, downloadable resume).</small>
-        </footer>
-      </section>
-
-      <aside>
-        <div class="card profile" id="contact">
-          <div>
-            <h3>Contact</h3>
-            <p class="lead" style="margin-top:6px">Kathmandu, Nepal • <a href="mailto:youremail@example.com" style="color:inherit; text-decoration:underline">youremail@example.com</a></p>
-          </div>
-
-          <div class="contact-row">
-            <a class="btn" href="mailto:youremail@example.com">Email me</a>
-            <a class="btn" href="#" style="background:transparent; border:1px solid rgba(255,255,255,0.06);">Download Resume</a>
-          </div>
-
-          <div class="section">
-            <h3>Links</h3>
-            <p style="margin:8px 0 0"><a href="https://github.com/archkabi" target="_blank">GitHub</a> • <a href="#" target="_blank">LinkedIn</a> • <a href="#" target="_blank">Portfolio Repo</a></p>
-          </div>
-
-          <div class="section">
-            <h3>Availability</h3>
-            <p style="color:var(--muted);margin:6px 0 0">Open for freelance & collaboration. Prefer remote work; local projects considered.</p>
-          </div>
-        </div>
-
-        <div class="card" style="margin-top:16px;text-align:center">
-          <h3>Quick Contact</h3>
-          <p style="color:var(--muted);font-size:13px">Want a specific section added? Or color/theme change? Tell me and I’ll update the file.</p>
-        </div>
-      </aside>
-    </main>
-  </div>
-</body>
+      <p>Copyright &#169; 2023 John Doe. All Rights Reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+  </body>
 </html>
