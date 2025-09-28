@@ -12,40 +12,41 @@
       --maxw:1100px; --radius:14px;
       font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
     }
-    *{box-sizing:border-box}
+    *{box-sizing:border-box; margin:0; padding:0;}
     html,body{height:100%;}
     body{
-      margin:0; background:linear-gradient(180deg,#071028 0%, #071b2a 60%); color:#e6eef8; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+      margin:0; background:linear-gradient(180deg,#071028 0%, #071b2a 60%); color:#e6eef8;
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
       display:flex; align-items:center; justify-content:center; padding:40px 20px;
     }
     .wrap{width:100%; max-width:var(--maxw);}
 
     header{
-      display:flex; gap:20px; align-items:center; justify-content:space-between; margin-bottom:28px;
+      display:flex; gap:20px; align-items:center; justify-content:space-between; margin-bottom:28px; flex-wrap:wrap;
     }
-    .brand{display:flex; gap:14px; align-items:center}
+    .brand{display:flex; gap:14px; align-items:center; flex:1; min-width:200px}
     .logo{width:56px; height:56px; border-radius:12px; background:linear-gradient(135deg,var(--accent),#06b6d4); display:flex; align-items:center; justify-content:center; font-weight:700; font-size:20px}
     h1{margin:0; font-size:20px}
-    p.lead{margin:0;color:var(--muted); font-size:13px}
+    p.lead{margin:0;color:var(--muted); font-size:14px}
 
     .grid{display:grid; grid-template-columns: 1fr 360px; gap:24px; align-items:start}
     .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border-radius:var(--radius); padding:22px; box-shadow: 0 6px 30px rgba(2,6,23,0.6);}
 
     /* left */
-    .hero{display:flex; gap:18px}
-    .avatar{width:120px; height:120px; border-radius:12px; background:linear-gradient(135deg,#0ea5a8,#7c3aed); display:flex; align-items:center; justify-content:center; font-weight:700; font-size:36px}
+    .hero{display:flex; gap:18px; flex-wrap:wrap;}
+    .avatar{width:120px; height:120px; border-radius:12px; background:linear-gradient(135deg,#0ea5a8,#7c3aed); display:flex; align-items:center; justify-content:center; font-weight:700; font-size:36px; flex-shrink:0;}
     .intro h2{margin:0 0 6px 0; font-size:22px}
     .intro p{margin:0;color:var(--muted)}
 
     .section{margin-top:18px}
-    .section h3{margin:0 0 12px 0}
+    .section h3{margin:0 0 12px 0; font-size:18px}
 
     .projects{display:grid; gap:12px}
-    .project{display:flex; gap:12px; align-items:center; padding:12px; border-radius:10px; background:var(--glass)}
-    .project .thumb{width:88px; height:56px; border-radius:8px; background:#072235; display:flex; align-items:center; justify-content:center; font-weight:600}
-    .project .meta{flex:1}
-    .project .meta h4{margin:0;font-size:14px}
-    .project .meta p{margin:4px 0 0 0;color:var(--muted);font-size:13px}
+    .project{display:flex; gap:12px; align-items:center; padding:12px; border-radius:10px; background:var(--glass); flex-wrap:wrap}
+    .project .thumb{width:88px; height:56px; border-radius:8px; background:#072235; display:flex; align-items:center; justify-content:center; font-weight:600; font-size:13px}
+    .project .meta{flex:1; min-width:180px}
+    .project .meta h4{margin:0;font-size:15px}
+    .project .meta p{margin:4px 0 0 0;color:var(--muted);font-size:13px; line-height:1.4}
 
     .skills{display:flex; gap:8px; flex-wrap:wrap}
     .skill{background:rgba(255,255,255,0.03); border-radius:999px; padding:6px 10px; font-size:13px; color:var(--muted)}
@@ -53,15 +54,35 @@
     /* right column */
     .profile{display:flex; flex-direction:column; gap:12px}
     .contact-row{display:flex; gap:10px; flex-direction:column}
-    .btn{display:inline-block; padding:10px 12px; border-radius:10px; background:linear-gradient(90deg,var(--accent),#06b6d4); color:white; text-decoration:none; font-weight:600}
+    .btn{display:inline-block; padding:10px 12px; border-radius:10px; background:linear-gradient(90deg,var(--accent),#06b6d4); color:white; text-decoration:none; font-weight:600; text-align:center}
 
     footer{margin-top:18px;color:var(--muted); font-size:13px; text-align:center}
 
-    /* responsive */
-    @media (max-width:900px){
+    /* --- Responsive Styles --- */
+    @media (max-width:1024px){ /* Tablet */
       .grid{grid-template-columns:1fr;}
-      .hero{flex-direction:row}
-      .avatar{width:96px;height:96px}
+      .project .thumb{width:72px; height:48px}
+      .avatar{width:100px;height:100px;font-size:28px}
+    }
+
+    @media (max-width:768px){ /* Small tablet / big phone */
+      body{padding:20px 14px}
+      header{flex-direction:column; align-items:flex-start; gap:12px;}
+      h1{font-size:18px}
+      .intro h2{font-size:20px}
+      .section h3{font-size:16px}
+      .btn{padding:8px 10px;font-size:14px}
+    }
+
+    @media (max-width:480px){ /* Phones */
+      .avatar{width:80px;height:80px;font-size:24px}
+      .intro h2{font-size:18px}
+      .intro p{font-size:13px}
+      .project{flex-direction:column; align-items:flex-start}
+      .project .thumb{width:100%; height:50px}
+      .project .meta h4{font-size:14px}
+      .skills{gap:6px}
+      .skill{padding:4px 8px;font-size:12px}
     }
   </style>
 </head>
@@ -72,7 +93,7 @@
         <div class="logo">KA</div>
         <div>
           <h1>Kabiraj Acharya</h1>
-          <p class="lead">Full‑stack developer • React, Flask, MySQL • Portfolio</p>
+          <p class="lead">Full-stack developer • React, Flask, MySQL • Portfolio</p>
         </div>
       </div>
       <nav>
@@ -146,7 +167,7 @@
       </section>
 
       <aside>
-        <div class="card profile">
+        <div class="card profile" id="contact">
           <div>
             <h3>Contact</h3>
             <p class="lead" style="margin-top:6px">Kathmandu, Nepal • <a href="mailto:youremail@example.com" style="color:inherit; text-decoration:underline">youremail@example.com</a></p>
