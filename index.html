@@ -5,8 +5,504 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kabiraj Acharya - Portfolio</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="mediaqueries.css" />
+    <style>
+      /* Base Styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background-color: #f5f5f5;
+        color: #333;
+        line-height: 1.6;
+      }
+
+      section {
+        padding-top: 4vh;
+        height: 96vh;
+        margin: 0 10rem;
+        box-sizing: border-box;
+        min-height: fit-content;
+      }
+
+      .section-container {
+        display: flex;
+        gap: 4rem;
+        height: 80%;
+      }
+
+      /* Navigation */
+      nav {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 17vh;
+        background-color: #fff;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+        font-size: 1.2rem;
+      }
+
+      a {
+        color: #333;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      a:hover {
+        color: #4a6cf7;
+      }
+
+      .logo {
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: #4a6cf7;
+      }
+
+      /* Hamburger Menu */
+      #hamburger-nav {
+        display: none;
+      }
+
+      .hamburger-menu {
+        position: relative;
+        display: inline-block;
+      }
+
+      .hamburger-icon {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 24px;
+        width: 30px;
+        cursor: pointer;
+      }
+
+      .hamburger-icon span {
+        width: 100%;
+        height: 2px;
+        background-color: #333;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .menu-links {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background-color: white;
+        width: fit-content;
+        max-height: 0;
+        overflow: hidden;
+        transition: all 0.3s ease-in-out;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+      }
+
+      .menu-links a {
+        display: block;
+        padding: 10px;
+        text-align: center;
+        font-size: 1.2rem;
+        color: #333;
+        text-decoration: none;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .menu-links li {
+        list-style: none;
+      }
+
+      .menu-links.open {
+        max-height: 300px;
+      }
+
+      /* Profile Section */
+      #profile {
+        display: flex;
+        justify-content: center;
+        gap: 5rem;
+        height: 80vh;
+        margin-top: 10vh;
+      }
+
+      .section__pic-container {
+        display: flex;
+        height: 400px;
+        width: 400px;
+        margin: auto 0;
+        border-radius: 50%;
+        overflow: hidden;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .section__pic-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .section__text {
+        align-self: center;
+        text-align: center;
+      }
+
+      .section__text p {
+        font-weight: 600;
+      }
+
+      .section__text__p1 {
+        text-align: center;
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+      }
+
+      .section__text__p2 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .title {
+        font-size: 3rem;
+        text-align: center;
+        margin-bottom: 1rem;
+        color: #4a6cf7;
+      }
+
+      /* Buttons */
+      .btn-container {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin: 1.5rem 0;
+      }
+
+      .btn {
+        font-weight: 600;
+        transition: all 0.3s ease;
+        padding: 1rem;
+        width: 8rem;
+        border-radius: 2rem;
+        border: none;
+        cursor: pointer;
+      }
+
+      .btn-color-1 {
+        background-color: #4a6cf7;
+        color: white;
+      }
+
+      .btn-color-2 {
+        background-color: transparent;
+        color: #4a6cf7;
+        border: 1px solid #4a6cf7;
+      }
+
+      .btn-color-1:hover {
+        background-color: #3a5ce5;
+      }
+
+      .btn-color-2:hover {
+        background-color: #eef2ff;
+      }
+
+      /* Socials */
+      #socials-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 1rem;
+        gap: 1rem;
+      }
+
+      .icon {
+        cursor: pointer;
+        height: 2rem;
+      }
+
+      /* About Section */
+      #about {
+        position: relative;
+      }
+
+      .about-containers {
+        gap: 2rem;
+        margin-bottom: 2rem;
+        margin-top: 2rem;
+      }
+
+      .about-details-container {
+        justify-content: center;
+        flex-direction: column;
+      }
+
+      .about-containers,
+      .about-details-container {
+        display: flex;
+      }
+
+      .about-pic {
+        border-radius: 2rem;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .details-container {
+        padding: 1.5rem;
+        flex: 1;
+        background: white;
+        border-radius: 2rem;
+        border: 1px solid #e0e0e0;
+        text-align: center;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      }
+
+      .text-container {
+        text-align: justify;
+        margin-top: 2rem;
+        line-height: 1.8;
+      }
+
+      /* Skills Section */
+      #skills {
+        position: relative;
+      }
+
+      .experience-sub-title {
+        color: #4a6cf7;
+        font-weight: 600;
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+      }
+
+      .experience-details-container {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+      }
+
+      .article-container {
+        display: flex;
+        text-align: initial;
+        flex-wrap: wrap;
+        flex-direction: row;
+        gap: 2.5rem;
+        justify-content: space-around;
+      }
+
+      article {
+        display: flex;
+        width: 10rem;
+        justify-content: space-around;
+        gap: 0.5rem;
+      }
+
+      article .icon {
+        cursor: default;
+      }
+
+      /* Experience Section */
+      #experience {
+        position: relative;
+      }
+
+      .color-container {
+        border-color: #e0e0e0;
+        background: white;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      }
+
+      .project-img {
+        border-radius: 2rem;
+        width: 90%;
+        height: 90%;
+      }
+
+      .project-title {
+        margin: 1rem;
+        color: #333;
+      }
+
+      .project-btn {
+        color: #4a6cf7;
+        border-color: #e0e0e0;
+      }
+
+      /* Contact Section */
+      #contact {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        height: 70vh;
+      }
+
+      .contact-info-upper-container {
+        display: flex;
+        justify-content: center;
+        border-radius: 2rem;
+        border: 1px solid #e0e0e0;
+        background: white;
+        margin: 2rem auto;
+        padding: 0.5rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      }
+
+      .contact-info-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        margin: 1rem;
+      }
+
+      .contact-info-container p {
+        font-size: larger;
+      }
+
+      .contact-icon {
+        cursor: default;
+      }
+
+      .email-icon {
+        height: 2.5rem;
+      }
+
+      /* Footer */
+      footer {
+        height: 26vh;
+        margin: 0 1rem;
+      }
+
+      footer p {
+        text-align: center;
+      }
+
+      .nav-links-container {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 1rem;
+      }
+
+      /* Arrow */
+      .arrow {
+        position: absolute;
+        right: -5rem;
+        bottom: 2.5rem;
+      }
+
+      /* Responsive Design */
+      @media screen and (max-width: 1400px) {
+        #profile {
+          height: 83vh;
+          margin-bottom: 6rem;
+        }
+        .about-containers {
+          flex-wrap: wrap;
+        }
+      }
+
+      @media screen and (max-width: 1200px) {
+        #desktop-nav {
+          display: none;
+        }
+        #hamburger-nav {
+          display: flex;
+        }
+        #skills,
+        .experience-details-container {
+          margin-top: 2rem;
+        }
+        #profile,
+        .section-container {
+          display: block;
+        }
+        .arrow {
+          display: none;
+        }
+        section,
+        .section-container {
+          height: fit-content;
+        }
+        section {
+          margin: 0 5%;
+        }
+        .section__pic-container {
+          width: 275px;
+          height: 275px;
+          margin: 0 auto 2rem;
+        }
+      }
+
+      @media screen and (max-width: 600px) {
+        #contact,
+        footer {
+          height: 40vh;
+        }
+        #profile {
+          height: 83vh;
+          margin-bottom: 0;
+        }
+        article {
+          font-size: 1rem;
+        }
+        footer nav {
+          height: fit-content;
+          margin-bottom: 2rem;
+        }
+        .about-containers,
+        .contact-info-upper-container,
+        .btn-container {
+          flex-wrap: wrap;
+        }
+        .contact-info-container {
+          margin: 0;
+        }
+        .contact-info-container p,
+        .nav-links li a {
+          font-size: 1rem;
+        }
+        .experience-sub-title {
+          font-size: 1.25rem;
+        }
+        .logo {
+          font-size: 1.5rem;
+        }
+        .nav-links {
+          flex-direction: column;
+          gap: 0.5rem;
+          text-align: center;
+        }
+        .section__pic-container {
+          width: auto;
+          height: 46vw;
+          justify-content: center;
+        }
+        .section__text__p2 {
+          font-size: 1.25rem;
+        }
+        .title {
+          font-size: 2rem;
+        }
+        .text-container {
+          text-align: justify;
+        }
+      }
+    </style>
   </head>
   <body>
     <nav id="desktop-nav">
@@ -43,7 +539,7 @@
       <div class="section__text">
         <p class="section__text__p1">Hello, I'm</p>
         <h1 class="title">Kabiraj Acharya</h1>
-        <p class="section__text__p2">IT Specialist & Developer</p>
+        <p class="section__text__p2">IT Specialist & IoT Developer</p>
         <div class="btn-container">
           <button
             class="btn btn-color-2"
@@ -91,7 +587,7 @@
                 class="icon"
               />
               <h3>Experience</h3>
-              <p>2+ years <br />IT Specialist</p>
+              <p>2+ years <br />IT & Graphics Design</p>
             </div>
             <div class="details-container">
               <img
@@ -100,16 +596,26 @@
                 class="icon"
               />
               <h3>Education</h3>
-              <p>IT Degree<br />Pokhara University</p>
+              <p>IT Degree<br />Informatics College, Pokhara</p>
+            </div>
+            <div class="details-container">
+              <img
+                src="./assets/location.png"
+                alt="Location icon"
+                class="icon"
+              />
+              <h3>Location</h3>
+              <p>Bagar, Pokhara<br />Nepal</p>
             </div>
           </div>
           <div class="text-container">
             <p>
-              IT Specialist from Pokhara with expertise in payroll systems, server management, and web development. 
-              Born on December 14, 2002, I have developed a strong foundation in various IT domains including 
-              attendance management systems, quality control processes, and IoT implementations. My experience spans 
-              from mid-level payroll specialization to junior DevOps and web development roles. I'm passionate about 
-              creating efficient systems and solving complex technical challenges.
+              IT Specialist with expertise in server management, network administration, and IoT implementations. 
+              Graduated from Informatics College Pokhara with a focus on Internet of Things. 
+              I have professional experience in both IT infrastructure management and graphics design, 
+              allowing me to bridge technical and creative domains effectively. 
+              Currently working as an IT Specialist at Taj Casino Pokhara, managing comprehensive IT infrastructure 
+              while also handling HR responsibilities including attendance tracking and documentation.
             </p>
           </div>
         </div>
@@ -127,19 +633,8 @@
       <div class="experience-details-container">
         <div class="about-containers">
           <div class="details-container">
-            <h2 class="experience-sub-title">IT Specialization</h2>
+            <h2 class="experience-sub-title">IT Infrastructure</h2>
             <div class="article-container">
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Payroll Systems</h3>
-                  <p>Mid-Level Specialist</p>
-                </div>
-              </article>
               <article>
                 <img
                   src="./assets/checkmark.png"
@@ -158,7 +653,7 @@
                   class="icon"
                 />
                 <div>
-                  <h3>Attendance Management</h3>
+                  <h3>Network Management</h3>
                   <p>Experienced</p>
                 </div>
               </article>
@@ -169,7 +664,18 @@
                   class="icon"
                 />
                 <div>
-                  <h3>Camera Maintenance</h3>
+                  <h3>Hardware Maintenance</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>Camera Systems</h3>
                   <p>Intermediate</p>
                 </div>
               </article>
@@ -180,14 +686,25 @@
                   class="icon"
                 />
                 <div>
-                  <h3>Quality Control</h3>
+                  <h3>Data Backup</h3>
+                  <p>Intermediate</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>Network Security</h3>
                   <p>Intermediate</p>
                 </div>
               </article>
             </div>
           </div>
           <div class="details-container">
-            <h2 class="experience-sub-title">Development</h2>
+            <h2 class="experience-sub-title">Development & Design</h2>
             <div class="article-container">
               <article>
                 <img
@@ -196,8 +713,8 @@
                   class="icon"
                 />
                 <div>
-                  <h3>Web Development</h3>
-                  <p>Junior Level</p>
+                  <h3>Internet of Things</h3>
+                  <p>Specialized</p>
                 </div>
               </article>
               <article>
@@ -207,8 +724,8 @@
                   class="icon"
                 />
                 <div>
-                  <h3>DevOps</h3>
-                  <p>Junior Level</p>
+                  <h3>Graphics Design</h3>
+                  <p>Experienced</p>
                 </div>
               </article>
               <article>
@@ -218,19 +735,30 @@
                   class="icon"
                 />
                 <div>
-                  <h3>IoT</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Excel</h3>
+                  <h3>Excel Management</h3>
                   <p>Advanced</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>Team Coordination</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>Marketing Planning</h3>
+                  <p>Intermediate</p>
                 </div>
               </article>
             </div>
@@ -246,7 +774,7 @@
     </section>
     <section id="experience">
       <p class="section__text__p1">Browse My Recent</p>
-      <h1 class="title">Projects</h1>
+      <h1 class="title">Work Experience</h1>
       <div class="experience-details-container">
         <div class="about-containers">
           <div class="details-container color-container">
@@ -257,20 +785,30 @@
                 class="project-img"
               />
             </div>
-            <h2 class="experience-sub-title project-title">Payroll Management System</h2>
-            <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/'"
-              >
-                Github
-              </button>
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/'"
-              >
-                Live Demo
-              </button>
+            <h2 class="experience-sub-title project-title">IT Specialist @ Taj Casino</h2>
+            <p><strong>December 2024 - Present</strong></p>
+            <div class="text-container" style="text-align: left; margin-top: 1rem;">
+              <ul>
+                <li>Server management, monitoring and maintenance</li>
+                <li>Hardware management and maintenance</li>
+                <li>Software follow up from contracted company</li>
+                <li>Excel sheet followups</li>
+                <li>Device setup and configuration</li>
+                <li>Network management</li>
+                <li>Camera system management and maintenance</li>
+                <li>Data backup and safe keeping</li>
+                <li>Login data recording and updating</li>
+                <li>Machine cleaning and troubleshooting</li>
+                <li>Internet devices health monitoring</li>
+                <li>Network security and monitoring</li>
+              </ul>
+              <p style="margin-top: 1rem;"><strong>Additional HR Responsibilities:</strong></p>
+              <ul>
+                <li>Attendance tracking</li>
+                <li>Document management</li>
+                <li>Late entry tracking</li>
+                <li>Reporting</li>
+              </ul>
             </div>
           </div>
           <div class="details-container color-container">
@@ -281,44 +819,18 @@
                 class="project-img"
               />
             </div>
-            <h2 class="experience-sub-title project-title">Attendance Tracking System</h2>
-            <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/'"
-              >
-                Github
-              </button>
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/'"
-              >
-                Live Demo
-              </button>
-            </div>
-          </div>
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img
-                src="./assets/project-3.png"
-                alt="Project 3"
-                class="project-img"
-              />
-            </div>
-            <h2 class="experience-sub-title project-title">IoT Monitoring Dashboard</h2>
-            <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/'"
-              >
-                Github
-              </button>
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/'"
-              >
-                Live Demo
-              </button>
+            <h2 class="experience-sub-title project-title">Graphics Designer @ DigitalAstra</h2>
+            <p><strong>January 2023 - April 2023</strong></p>
+            <div class="text-container" style="text-align: left; margin-top: 1rem;">
+              <ul>
+                <li>Design Planning</li>
+                <li>Social media designing consistency</li>
+                <li>Team coordination</li>
+                <li>Marketing planning</li>
+                <li>Weekly reporting</li>
+                <li>Time management</li>
+                <li>Social media Post scheduling</li>
+              </ul>
             </div>
           </div>
         </div>
@@ -350,6 +862,14 @@
           />
           <p><a href="https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile">LinkedIn</a></p>
         </div>
+        <div class="contact-info-container">
+          <img
+            src="./assets/location.png"
+            alt="Location icon"
+            class="icon contact-icon"
+          />
+          <p>Bagar, Pokhara, Nepal</p>
+        </div>
       </div>
     </section>
     <footer>
@@ -358,13 +878,20 @@
           <ul class="nav-links">
             <li><a href="#about">About</a></li>
             <li><a href="#skills">Skills</a></li>
-            <li><a href="#experience">Projects</a></li>
+            <li><a href="#experience">Experience</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
         </div>
       </nav>
-      <p>Copyright &#169; 2023 Kabiraj Acharya. All Rights Reserved.</p>
+      <p>Copyright &#169; 2024 Kabiraj Acharya. All Rights Reserved.</p>
     </footer>
-    <script src="script.js"></script>
+    <script>
+      function toggleMenu() {
+        const menu = document.querySelector(".menu-links");
+        const icon = document.querySelector(".hamburger-icon");
+        menu.classList.toggle("open");
+        icon.classList.toggle("open");
+      }
+    </script>
   </body>
 </html>
