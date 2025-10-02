@@ -191,24 +191,26 @@ span{
     box-shadow: 0 0 25px #b74b4b;
 }
 
-.typing-text {
+/* Fixed Typing Animation */
+.typing-text{
     font-size: 4rem;
     font-weight: 600;
-    min-height: 60px;
-    margin-bottom: 1rem;
+    min-width: 280px;
+    display: inline-block;
 }
 
-.typing-text span {
+.typing-text span{
     position: relative;
-    color: #b74b4b;
+    display: inline-block;
 }
 
-.typing-text span::before {
+.typing-text span::before{
     content: "IT Specialist";
+    color: #b74b4b;
     animation: words 20s infinite;
 }
 
-.typing-text span::after {
+.typing-text span::after{
     content: "";
     position: absolute;
     right: -8px;
@@ -218,7 +220,7 @@ span{
     animation: cursor 0.8s infinite;
 }
 
-@keyframes cursor {
+@keyframes cursor{
     0%, 100% {
         opacity: 1;
     }
@@ -227,21 +229,50 @@ span{
     }
 }
 
-@keyframes words {
-    0%, 20% {
+@keyframes words{
+    0%, 20%{
         content: "IT Specialist";
     }
-    25%, 40% {
+    25%, 40%{
         content: "Web Developer";
     }
-    45%, 60% {
+    45%, 60%{
         content: "Server Architect";
     }
-    65%, 80% {
+    65%, 80%{
         content: "Graphics Designer";
     }
-    85%, 100% {
-        content: "IOT Specialist";
+    85%, 100%{
+        content: "Network Administrator";
     }
 }
+
+@media (max-width: 1000px){
+    .home{
+        gap: 4rem;
+    }
+}
+
+@media(max-width:995px){
+    .home{
+        flex-direction: column;
+        margin: 5rem 4rem;
+    }
+
+    .home .home-content h3{
+        font-size: 2.5rem;
+    }
+
+    .home-content h1{
+        font-size: 5rem;
+    }
+
+    .home-img img{
+        width: 70vw;
+        margin-top: 4rem;
+    }
+    
+    .typing-text{
+        font-size: 3rem;
+    }
 }
