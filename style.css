@@ -190,80 +190,31 @@ span{
     color: black;
     box-shadow: 0 0 25px #b74b4b;
 }
-
-.typing-text{
-    font-size: 34px;
-    font-weight: 600;
-    min-width: 280px;
+.typing-text {
+  position: relative;
+  display: inline-block;
+  font-size: 34px;
+  font-weight: 600;
+  color: #b74b4b;
 }
 
-.typing-text span{
-    position: relative;
+.typing-text span {
+  position: absolute;
+  opacity: 0;
+  animation: textfade 20s infinite;
 }
 
-.typing-text span::before{
-    content: "software Developer";
-    color: #b74b4b;
-    animation: words 20s infinite;
+.typing-text span:nth-child(1) { animation-delay: 0s; }
+.typing-text span:nth-child(2) { animation-delay: 4s; }
+.typing-text span:nth-child(3) { animation-delay: 8s; }
+.typing-text span:nth-child(4) { animation-delay: 12s; }
+.typing-text span:nth-child(5) { animation-delay: 16s; }
+
+@keyframes textfade {
+  0% { opacity: 0; }
+  10% { opacity: 1; }
+  20% { opacity: 0; }
+  100% { opacity: 0; }
 }
 
-.typing-text span::after{
-    content: "";
-    background-color: black;
-    position: absolute;
-    width: calc(100% + 8px);
-    height: 100%;
-    border-left: 3px solid black;
-    right: -8;
-    animation: cursor 0.6s infinite;
-}
-
-@keyframes cursor{
-    to{
-        border-left: 3px solid #b74b4b;
-    }
-}
-
-@keyframes words{
-    0%, 20%{
-        content: "Server Architect";
-    }
-    21%, 40%{
-        content: "Graphics Designer";
-    }
-    41%, 60%{
-        content: "Web Developer";
-    }
-    61%, 80%{
-        content: "Network Administrator";
-    }
-    81%, 100%{
-        content: "IOT Specialist";
-    }
-}
-
-@media (max-width: 1000px){
-    .home{
-        gap: 4rem;
-    }
-}
-
-@media(max-width:995px){
-    .home{
-        flex-direction: column;
-        margin: 5rem 4rem;
-    }
-
-    .home .home-content h3{
-        font-size: 2.5rem;
-    }
-
-    .home-content h1{
-        font-size: 5rem;
-    }
-
-    .home-img img{
-        width: 70vw;
-        margin-top: 4rem;
-    }
 }
