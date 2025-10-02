@@ -190,44 +190,55 @@ span{
     color: black;
     box-shadow: 0 0 25px #b74b4b;
 }
-.typing-text {
-  font-size: 34px;
-  font-weight: 600;
-  color: #fff;
+
+.typing-text{
+    font-size: 34px;
+    font-weight: 600;
+    min-width: 280px;
 }
 
-.typing-text span {
-  display: inline-block;
-  overflow: hidden;
-  vertical-align: top;
-  height: 40px; /* adjust to fit text height */
-  position: relative;
+.typing-text span{
+    position: relative;
 }
 
-.typing-text b {
-  display: block;
-  color: #b74b4b;
-  height: 40px;
-  line-height: 40px;
-  animation: slide 12s steps(6) infinite;
+.typing-text span::before{
+    content: "IT Specalist";
+    color: #b74b4b;
+    animation: words 20s infinite;
 }
 
+.typing-text span::after{
+    content: "";
+    background-color: black;
+    position: absolute;
+    width: calc(100% + 8px);
+    height: 100%;
+    border-left: 3px solid black;
+    right: -8;
+    animation: cursor 0.6s infinite;
+}
+
+@keyframes cursor{
+    to{
+        border-left: 3px solid #b74b4b;
+    }
+}
 @keyframes slide {
-  0%   { transform: translateY(0); }
-  16%  { transform: translateY(0); }
-  20%  { transform: translateY(-40px); }
-
-  36%  { transform: translateY(-40px); }
-  40%  { transform: translateY(-80px); }
-
-  56%  { transform: translateY(-80px); }
-  60%  { transform: translateY(-120px); }
-
-  76%  { transform: translateY(-120px); }
-  80%  { transform: translateY(-160px); }
-
-  96%  { transform: translateY(-160px); }
-  100% { transform: translateY(-200px); }
+  0%, 20%{
+        content: "Web Developer";
+    }
+    21%, 40%{
+        content: "Server Architect";
+    }
+    41%, 60%{
+        content: "Graphics Designer";
+    }
+    61%, 80%{
+        content: "IOT Specialist";
+    }
+    81%, 100%{
+        content: "Network Administrator";
+    }
 }
 
 
