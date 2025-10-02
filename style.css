@@ -194,7 +194,8 @@ span{
 .typing-text {
     font-size: 4rem;
     font-weight: 600;
-    min-width: 280px;
+    min-height: 60px;
+    margin-bottom: 1rem;
 }
 
 .typing-text span {
@@ -210,10 +211,10 @@ span{
 .typing-text span::after {
     content: "";
     position: absolute;
+    right: -8px;
     width: 3px;
     height: 100%;
-    border-right: 3px solid #b74b4b;
-    right: -8px;
+    background-color: #b74b4b;
     animation: cursor 0.8s infinite;
 }
 
@@ -227,23 +228,20 @@ span{
 }
 
 @keyframes words {
-    0%, 16% {
+    0%, 20% {
         content: "IT Specialist";
     }
-    20%, 36% {
+    25%, 40% {
         content: "Web Developer";
     }
-    40%, 56% {
+    45%, 60% {
         content: "Server Architect";
     }
-    60%, 76% {
+    65%, 80% {
         content: "Graphics Designer";
     }
-    80%, 96% {
+    85%, 100% {
         content: "IOT Specialist";
-    }
-    100% {
-        content: "Network Administrator";
     }
 }
 }
