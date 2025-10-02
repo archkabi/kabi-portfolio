@@ -45,5 +45,61 @@
             </a>
         </div>
     </section>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const typingElement = document.querySelector('.typing-text span');
+        const professions = [
+            "IT Specialist",
+            "Web Developer", 
+            "Server Architect",
+            "Graphics Designer",
+            "Network Administrator"
+        ];
+        
+        let currentIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let isEnd = false;
+
+        function type() {
+            const currentProfession = professions[currentIndex];
+            
+            if (isDeleting) {
+                // Deleting text
+                typingElement.textContent = currentProfession.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                // Typing text
+                typingElement.textContent = currentProfession.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            // If typing is complete
+            if (!isDeleting && charIndex === currentProfession.length) {
+                isEnd = true;
+                isDeleting = true;
+                // Wait before starting to delete
+                setTimeout(type, 2000);
+            } 
+            // If deleting is complete
+            else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                isEnd = false;
+                // Move to next profession
+                currentIndex = (currentIndex + 1) % professions.length;
+                setTimeout(type, 500);
+            } 
+            // Continue typing/deleting
+            else {
+                const typeSpeed = isDeleting ? 100 : 150;
+                const speed = isEnd ? 2000 : typeSpeed;
+                setTimeout(type, speed);
+            }
+        }
+
+        // Start the typing effect
+        setTimeout(type, 1000);
+    });
+</script>
 </body>
 </html>
